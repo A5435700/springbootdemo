@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
     @RequestMapping(value = "/test")
      public String test(){
-         return "五一期间一定要完成这个任务，认真的，好好的";
+         return "五一期间一定要完成这个任务，认真的，好好的,加油";
      }
 }
 
