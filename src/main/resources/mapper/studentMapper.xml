@@ -12,8 +12,8 @@
     <select id="getStudent" resultMap="studentId" >
         select * from student
         <where>
-            <if test="name!=''">
-                and Sname=#{name}
+            <if test="name!=null">
+                 and Sname=#{name}
             </if>
             <if test="age!=null">
                 and Sage=#{age}
@@ -26,8 +26,34 @@
     </select>
 
     <insert id="insertStudent" parameterType="student">
-        insert into student(Sname,Sage,Ssex)
-        values (#{name},#{age},#{sex})
+        insert into student
+            (
+        <trim suffixOverrides=",">
+            <if test="name!=null">
+                Sname,
+            </if>
+            <if test="age!=null">
+                Sage,
+            </if>
+            <if test="sex!=null">
+                Ssex
+            </if>
+        </trim>
+            )
+            values
+            (
+        <trim suffixOverrides=",">
+            <if test="name!=null">
+                #{name},
+            </if>
+            <if test="age!=null">
+                #{age},
+            </if>
+            <if test="sex!=null">
+                #{sex}
+            </if>
+        </trim>
+            )
     </insert>
 
     <update id="updateStudent" parameterType="student">

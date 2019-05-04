@@ -26,7 +26,11 @@ public class StudentImpl implements StudentService {
 
     @Override
     public int insertStudent(Student student) {
-        return studentDao.insertStudent(student);
+        if (student.getName()!=null) {
+            return studentDao.insertStudent(student);
+        }else {
+            return 0;
+        }
     }
 
     @Override
