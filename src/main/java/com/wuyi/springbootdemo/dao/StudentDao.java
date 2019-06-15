@@ -11,7 +11,8 @@ import java.util.List;
  * 陈晓萌
  * 2019/5/2 17:30
  */
-@Repository
+//@Repository
+@Mapper
 public interface StudentDao {
     /**
      * 查询学生信息
